@@ -13,6 +13,8 @@
     const mmX = document.getElementById('mmX');
     const hdr = document.getElementById('hdr');
     const bb = document.querySelector('.bb');
+    const heroAct = document.querySelector('.hero-act');
+    const ftr = document.querySelector('.ftr');
     let menuOpen = false;
 
     const setMenu = open => {
@@ -100,8 +102,12 @@
     const frame = () => {
       raf = 0;
       if (!menuOpen) hdr.dataset.s = scrollY < 8 ? 'top' : 'solid';
-      // Barra mobile: compare dopo circa l'85% della prima schermata
-      if (bb) bb.dataset.show = String(scrollY > innerHeight * 0.85);
+      // Barra mobile: compare quando le CTA dell'hero escono dallo schermo, sparisce sul footer
+      if (bb) {
+        const ctaGone = heroAct.getBoundingClientRect().bottom < 0;
+        const onFooter = ftr.getBoundingClientRect().top < innerHeight;
+        bb.dataset.show = String(ctaGone && !onFooter);
+      }
       if (!sdView && !reduced) {
         const wide = innerWidth >= 1440, vh = innerHeight;
         pxs.forEach(el => {
