@@ -12,6 +12,7 @@
     const burger = document.querySelector('.burger');
     const mmX = document.getElementById('mmX');
     const hdr = document.getElementById('hdr');
+    const bb = document.querySelector('.bb');
     let menuOpen = false;
 
     const setMenu = open => {
@@ -99,6 +100,8 @@
     const frame = () => {
       raf = 0;
       if (!menuOpen) hdr.dataset.s = scrollY < 8 ? 'top' : 'solid';
+      // Barra mobile: compare dopo circa l'85% della prima schermata
+      if (bb) bb.dataset.show = String(scrollY > innerHeight * 0.85);
       if (!sdView && !reduced) {
         const wide = innerWidth >= 1440, vh = innerHeight;
         pxs.forEach(el => {
