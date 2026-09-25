@@ -9,7 +9,7 @@ index.html          markup semantico della homepage (contenuti, FAQ e dati strut
 css/style.css       stili: scala tipografica, griglia, moduli, responsive, prefers-reduced-motion
 js/main.js          comportamento: menu mobile, video pausa/play, FAQ, comparsa dei contenuti,
                     header sticky, parallasse, contatore dei passi, caroselli
-assets/img/         foto e logo
+assets/img/         foto e logo (logo-nardin.png, usato anche come favicon)
 assets/video/       video dell'hero e del laboratorio
 ```
 
